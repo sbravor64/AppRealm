@@ -17,17 +17,17 @@
         tools:layout="@layout/fragment_insertar" />
     <fragment
         android:id="@+id/buscarFragment"
-        android:name="com.example.apprealm.BuscarFragment"
+        android:name="com.example.apprealm.ui.BuscarFragment"
         android:label="fragment_buscar"
         tools:layout="@layout/fragment_buscar" />
     <fragment
         android:id="@+id/borrarFragment"
-        android:name="com.example.apprealm.BorrarFragment"
+        android:name="com.example.apprealm.ui.BorrarFragment"
         android:label="fragment_borrar"
         tools:layout="@layout/fragment_borrar" />
     <fragment
         android:id="@+id/modificarFragment"
-        android:name="com.example.apprealm.ModificarFragment"
+        android:name="com.example.apprealm.ui.ModificarFragment"
         android:label="fragment_modificar"
         tools:layout="@layout/fragment_modificar" />
 </navigation>

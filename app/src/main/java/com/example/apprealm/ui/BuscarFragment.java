@@ -1,4 +1,4 @@
-package com.example.apprealm;
+package com.example.apprealm.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.apprealm.R;
 import com.example.apprealm.crud.CRUDUser;
 import com.example.apprealm.model.User;
 
