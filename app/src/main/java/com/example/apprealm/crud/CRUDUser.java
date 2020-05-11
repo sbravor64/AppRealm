@@ -1,6 +1,10 @@
 package com.example.apprealm.crud;
 
+import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.apprealm.model.User;
 
@@ -41,17 +45,6 @@ public class CRUDUser {
         return users;
     }
 
-    public final static List<String> getAllUsersString(){
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults<User> users = realm.where(User.class).findAll();
-        List<String> userList = new ArrayList<>();
-        for(User user : users){
-            Log.d("TAG", "ID: " + user.getId() + " Nombre: " + user.getNombre());
-            userList.add(user.getId() + " Nombre: " + user.getNombre() + " Edad: " + user.getAño() + "\n");
-        }
-        return userList;
-    }
-
     public final static User getUserByName(String name){
         Realm realm = Realm.getDefaultInstance();
         User user = realm.where(User.class).equalTo("nombre", name).findFirst();
@@ -80,7 +73,9 @@ public class CRUDUser {
 
         User user = realm.where(User.class).equalTo("id", id).findFirst();
 
-        user.deleteFromRealm();
+        if(user!=null){
+            user.deleteFromRealm();
+        }
         realm.commitTransaction();
 
     }

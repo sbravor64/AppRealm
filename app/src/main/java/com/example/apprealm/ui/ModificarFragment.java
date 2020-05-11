@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.apprealm.R;
 import com.example.apprealm.crud.CRUDUser;
+import com.example.apprealm.model.User;
 
 
 /**
@@ -59,11 +60,20 @@ public class ModificarFragment extends Fragment {
                     Toast.makeText(getActivity(), "Inserte los datos para modificar", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    CRUDUser.updateUserById(Integer.parseInt(editTextModificarUser.getText().toString()),
-                            editTextNombreNuevo.getText().toString(),
-                            editTextEdadNueva.getText().toString());
-                    Toast.makeText(getActivity(), "El usuario ha sido modificado con exito", Toast.LENGTH_SHORT).show();
-
+                    int id = Integer.parseInt(editTextModificarUser.getText().toString());
+                    for (User u: CRUDUser.getAllUsers()) {
+                        int id2 = u.getId();
+                        if(id==id2) {
+                            CRUDUser.updateUserById(Integer.parseInt(editTextModificarUser.getText().toString()),
+                                    editTextNombreNuevo.getText().toString(),
+                                    editTextEdadNueva.getText().toString());
+                            Toast.makeText(getActivity(), "El usuario ha sido modificado con exito", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else{
+                            Toast.makeText(getActivity(), "ID del usuario no encontrado", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
                 }
             }
         });

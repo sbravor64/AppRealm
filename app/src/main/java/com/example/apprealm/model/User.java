@@ -9,7 +9,7 @@ public class User extends RealmObject {
     private String nombre;
     private String año;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

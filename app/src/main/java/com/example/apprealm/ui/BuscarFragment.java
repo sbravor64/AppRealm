@@ -47,13 +47,17 @@ public class BuscarFragment extends Fragment {
         buttonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                User user = CRUDUser.getUserByName(editTextNombreBuscar.getText().toString());
                 if (editTextNombreBuscar.getText().toString().matches("")) {
                     Toast.makeText(getActivity(), "Inserte el nombre del usuario que quiere buscar", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    textViewBuscarUser.setVisibility(TextView.VISIBLE);
-                    User user = CRUDUser.getUserByName(editTextNombreBuscar.getText().toString());
-                    textViewBuscarUser.setText(user.toString());                }
+                    if(user != null){
+                        textViewBuscarUser.setVisibility(TextView.VISIBLE);
+                        textViewBuscarUser.setText(user.toString());
+                    } else Toast.makeText(getActivity(), "Usuario no encontrado", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
     }

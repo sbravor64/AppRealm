@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="ID del usuario"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/buttonBorrar"

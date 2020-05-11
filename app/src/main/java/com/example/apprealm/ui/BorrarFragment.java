@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.apprealm.R;
 import com.example.apprealm.crud.CRUDUser;
+import com.example.apprealm.model.User;
 
 
 /**
@@ -55,8 +56,18 @@ public class BorrarFragment extends Fragment {
                     Toast.makeText(getActivity(), "Inserte el id del usuario que quiere borrar", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    CRUDUser.deleteUserById(Integer.parseInt(editTextBorrarUser.getText().toString()));
-                    Toast.makeText(getActivity(), "El usuario ha sido borrado con exito", Toast.LENGTH_SHORT).show();
+                    int id = Integer.parseInt(editTextBorrarUser.getText().toString());
+                    for (User u: CRUDUser.getAllUsers()) {
+                        int id2 = u.getId();
+                        if(id==id2) {
+                            CRUDUser.deleteUserById(Integer.parseInt(editTextBorrarUser.getText().toString()));
+                            Toast.makeText(getActivity(), "El usuario ha sido borrado con exito", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else{
+                            Toast.makeText(getActivity(), "Inserte un id valido", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
                 }
             }
         });
