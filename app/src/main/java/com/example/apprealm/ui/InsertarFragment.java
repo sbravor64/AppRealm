@@ -71,6 +71,8 @@ public class InsertarFragment extends Fragment {
                     user.setNombre(editTextNombreUser.getText().toString());
                     user.setAño(editTextEdadUser.getText().toString());
                     CRUDUser.addUser(user);
+                    Toast.makeText(getActivity(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

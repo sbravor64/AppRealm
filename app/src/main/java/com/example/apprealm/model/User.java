@@ -37,6 +37,6 @@ public class User extends RealmObject {
     public String toString() {
         return "Id: '" + id + '\'' +
                 ", Nombre: '" + nombre + '\'' +
-                ", Año: '" + año + '\n';
+                ", Año: '" + año + '\'' + "\n";
     }
 }
