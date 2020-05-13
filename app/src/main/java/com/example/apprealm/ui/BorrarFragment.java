@@ -56,17 +56,20 @@ public class BorrarFragment extends Fragment {
                     Toast.makeText(getActivity(), "Inserte el id del usuario que quiere borrar", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
+                    boolean findUser=false;
                     int id = Integer.parseInt(editTextBorrarUser.getText().toString());
                     for (User u: CRUDUser.getAllUsers()) {
                         int id2 = u.getId();
                         if(id==id2) {
-                            CRUDUser.deleteUserById(Integer.parseInt(editTextBorrarUser.getText().toString()));
-                            Toast.makeText(getActivity(), "El usuario ha sido borrado con exito", Toast.LENGTH_SHORT).show();
-                            return;
-                        } else{
-                            Toast.makeText(getActivity(), "Inserte un id valido", Toast.LENGTH_SHORT).show();
-                            return;
+                            findUser=true;
                         }
+                    }
+
+                    if(findUser==true){
+                        CRUDUser.deleteUserById(Integer.parseInt(editTextBorrarUser.getText().toString()));
+                        Toast.makeText(getActivity(), "El usuario ha sido borrado con exito", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Inserte un id valido", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

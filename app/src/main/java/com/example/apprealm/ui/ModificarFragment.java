@@ -61,18 +61,21 @@ public class ModificarFragment extends Fragment {
                     return;
                 } else {
                     int id = Integer.parseInt(editTextModificarUser.getText().toString());
+                    boolean findUser=false;
                     for (User u: CRUDUser.getAllUsers()) {
                         int id2 = u.getId();
                         if(id==id2) {
-                            CRUDUser.updateUserById(Integer.parseInt(editTextModificarUser.getText().toString()),
-                                    editTextNombreNuevo.getText().toString(),
-                                    editTextEdadNueva.getText().toString());
-                            Toast.makeText(getActivity(), "El usuario ha sido modificado con exito", Toast.LENGTH_SHORT).show();
-                            return;
-                        } else{
-                            Toast.makeText(getActivity(), "ID del usuario no encontrado", Toast.LENGTH_SHORT).show();
-                            return;
+                            findUser=true;
                         }
+                    }
+
+                    if(findUser==true){
+                        CRUDUser.updateUserById(Integer.parseInt(editTextModificarUser.getText().toString()),
+                                editTextNombreNuevo.getText().toString(),
+                                editTextEdadNueva.getText().toString());
+                        Toast.makeText(getActivity(), "El usuario ha sido modificado con exito", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "ID del usuario no encontrado", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
