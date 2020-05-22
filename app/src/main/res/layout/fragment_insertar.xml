@@ -19,12 +19,36 @@
             android:hint="Nombre" />
 
         <EditText
+            android:id="@+id/editTextApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Apellidos" />
+
+        <EditText
             android:id="@+id/editTextEdad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
             android:hint="Edad" />
+
+        <EditText
+            android:id="@+id/editTexDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Dirección" />
+
+        <EditText
+            android:id="@+id/editTextTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Teléfono" />
 
         <Button
             android:id="@+id/buttonInsertar"

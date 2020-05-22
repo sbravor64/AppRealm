@@ -27,12 +27,36 @@
             android:hint="Nombre Nuevo" />
 
         <EditText
+            android:id="@+id/editTextApellidosNuevos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Apellidos Nuevos" />
+
+        <EditText
             android:id="@+id/editTextEdadNueva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
             android:hint="Edad Nueva" />
+
+        <EditText
+            android:id="@+id/editTexDireccionNueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Dirección" />
+
+        <EditText
+            android:id="@+id/editTextTelefonoNuevo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Teléfono" />
 
         <Button
             android:id="@+id/buttonModificar"

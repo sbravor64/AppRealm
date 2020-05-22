@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.apprealm.R;
 import com.example.apprealm.crud.CRUDUser;
 import com.example.apprealm.model.User;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class HomeFragment extends Fragment {
     private Button buttonModificar;
     private Button buttonListaUsuarios;
 
+
     private TextView textViewListaUsers;
 
     NavController navController;
-
 
     public HomeFragment() {
         // Required empty public constructor

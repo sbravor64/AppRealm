@@ -28,6 +28,9 @@ public class ModificarFragment extends Fragment {
     private EditText editTextModificarUser;
     private EditText editTextNombreNuevo;
     private EditText editTextEdadNueva;
+    private EditText editTextDireccionNueva;
+    private EditText editTextApellidosNuevos;
+    private EditText editTextTelefonoNuevo;
 
     public ModificarFragment() {
         // Required empty public constructor
@@ -48,7 +51,11 @@ public class ModificarFragment extends Fragment {
         //modificar
         editTextModificarUser = view.findViewById(R.id.editTextModificarUser);
         editTextNombreNuevo = view.findViewById(R.id.editTextNombreNuevo);
+        editTextApellidosNuevos = view.findViewById(R.id.editTextApellidosNuevos);
         editTextEdadNueva = view.findViewById(R.id.editTextEdadNueva);
+        editTextDireccionNueva = view.findViewById(R.id.editTexDireccionNueva);
+        editTextTelefonoNuevo = view.findViewById(R.id.editTextTelefonoNuevo);
+
         buttonModificar = view.findViewById(R.id.buttonModificar);
 
         buttonModificar.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +63,10 @@ public class ModificarFragment extends Fragment {
             public void onClick(View v) {
                 if (editTextModificarUser.getText().toString().matches("") ||
                         editTextNombreNuevo.getText().toString().matches("") ||
-                        editTextEdadNueva.getText().toString().matches("")) {
+                        editTextApellidosNuevos.getText().toString().matches("") ||
+                        editTextEdadNueva.getText().toString().matches("") ||
+                        editTextDireccionNueva.getText().toString().matches("") ||
+                        editTextTelefonoNuevo.getText().toString().matches("")) {
                     Toast.makeText(getActivity(), "Inserte los datos para modificar", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
@@ -72,7 +82,10 @@ public class ModificarFragment extends Fragment {
                     if(findUser==true){
                         CRUDUser.updateUserById(Integer.parseInt(editTextModificarUser.getText().toString()),
                                 editTextNombreNuevo.getText().toString(),
-                                editTextEdadNueva.getText().toString());
+                                editTextApellidosNuevos.getText().toString(),
+                                editTextEdadNueva.getText().toString(),
+                                editTextDireccionNueva.getText().toString(),
+                                Integer.parseInt(editTextTelefonoNuevo.getText().toString()));
                         Toast.makeText(getActivity(), "El usuario ha sido modificado con exito", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getActivity(), "ID del usuario no encontrado", Toast.LENGTH_SHORT).show();

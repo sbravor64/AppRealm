@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +29,9 @@ public class InsertarFragment extends Fragment {
 
     private EditText editTextNombreUser;
     private EditText editTextEdadUser;
+    private EditText editTextApellidos;
+    private EditText editTextDireccion;
+    private EditText editTextTelefono;
     private Button buttonInsertar;
 
 
@@ -51,25 +53,36 @@ public class InsertarFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        user = new User();
-
         navController = Navigation.findNavController(view);
 
         //insert
         editTextEdadUser = view.findViewById(R.id.editTextEdad);
         editTextNombreUser = view.findViewById(R.id.editTextNombre);
+        editTextApellidos = view.findViewById(R.id.editTextApellidos);
+        editTextDireccion = view.findViewById(R.id.editTexDireccion);
+        editTextTelefono = view.findViewById(R.id.editTextTelefono);
         buttonInsertar = view.findViewById(R.id.buttonInsertar);
 
         buttonInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (editTextEdadUser.getText().toString().matches("") || editTextNombreUser.getText().toString().matches("")) {
-                    Toast.makeText(getActivity(), "Escriba el nombre y edad del usuario para insertarlo", Toast.LENGTH_SHORT).show();
+                if (editTextEdadUser.getText().toString().matches("") ||
+                        editTextNombreUser.getText().toString().matches("") ||
+                        editTextApellidos.getText().toString().matches("") ||
+                        editTextDireccion.getText().toString().matches("") ||
+                        editTextTelefono.getText().toString().matches("")){
+                    Toast.makeText(getActivity(), "Rellene los datos del usuario para insertarlo", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    user.setNombre(editTextNombreUser.getText().toString());
-                    user.setAño(editTextEdadUser.getText().toString());
+                    user = new User(editTextNombreUser.getText().toString(),
+                            editTextApellidos.getText().toString(),
+                            editTextEdadUser.getText().toString(),
+                            editTextDireccion.getText().toString(),
+                            Integer.parseInt(editTextTelefono.getText().toString()));
+
+//                    user.setNombre(editTextNombreUser.getText().toString());
+//                    user.setEdad(editTextEdadUser.getText().toString());
                     CRUDUser.addUser(user);
                     Toast.makeText(getActivity(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
 

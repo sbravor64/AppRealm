@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.apprealm.model.Migration;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -20,7 +22,7 @@ public class AppRealm extends Application {
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .name(Realm.DEFAULT_REALM_NAME)
                 .schemaVersion(1)
-                .deleteRealmIfMigrationNeeded()
+                .migration(new Migration())
                 .build();
         Realm.setDefaultConfiguration(configuration);
 
